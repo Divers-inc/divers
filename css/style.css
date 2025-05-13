@@ -3,7 +3,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #000000;
+}
+
+body, html {
+    color: #FFFFFF;
+}
+
+/* 모든 배경색 제거 */
+*, *::before, *::after {
+    background: none !important;
+}
+
+/* 컨테이너 투명도 설정 */
+.container, .section, .header, .footer {
+    background: none !important;
 }
 
 :root {
