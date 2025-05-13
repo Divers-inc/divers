@@ -949,4 +949,286 @@ footer {
     z-index: 1;
     background-color: #000000 !important;
     overflow: hidden;
+}
+
+/* 프로젝트 갤러리 스타일 */
+.project-gallery-container {
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
+
+.project-item {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item .image-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 75%; /* 이미지 비율 유지 */
+}
+
+.project-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Swiper 갤러리 컨테이너 */
+.project-gallery-container.swiper {
+    padding: 20px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 네비게이션 버튼(화살표) 스타일 수정 */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    background: rgba(0, 0, 255, 0.5) !important; /* 50% 투명도의 파란색으로 변경 */
+    transition: transform 0.3s ease;
+    top: calc(175px + 20px) !important;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swiper-button-prev {
+    left: 20px !important;
+}
+
+.swiper-button-next {
+    right: 20px !important;
+}
+
+/* 나머지 스타일은 유지 */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 20px !important;
+    color: rgba(255, 255, 255, 1) !important; /* 화살표는 완전 불투명 흰색 유지 */
+}
+
+/* 호버 효과 */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* 페이지네이션 스타일 */
+.swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: 100%;
+    text-align: center;
+    z-index: 21;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px !important;
+    display: inline-block;
+}
+
+.swiper-pagination-bullet-active {
+    background: rgb(0, 0, 255) !important;
+}
+
+/* 반응형 설정 */
+@media (max-width: 768px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+    
+    .project-gallery-container.swiper {
+        padding: 15px 30px;
+    }
+    
+    .swiper-pagination {
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-gallery-container.swiper {
+        padding: 10px 20px;
+    }
+    
+    .swiper-pagination {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+}
+
+/* 이미지 선택 방지 스타일 추가 */
+.project-item,
+.project-item img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 팬톤칩 스타일의 프로젝트 아이템 */
+.project-item {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(17, 17, 17, 0.6) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    height: 450px; /* 전체 높이 고정 */
+}
+
+.project-item .image-container {
+    width: 100%;
+    height: 350px; /* 이미지 영역 높이 */
+    overflow: hidden;
+    position: relative;
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-item .project-info {
+    padding: 15px;
+    background: rgba(17, 17, 17, 0.8) !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-item .project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.project-item .project-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+}
+
+/* Swiper 커스텀 스타일 수정 */
+.swiper {
+    padding: 20px 0 50px 0; /* 하단 페이지네이션 여유 공간 */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: rgb(0, 0, 255) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.1);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 20px !important;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: rgb(0, 0, 255) !important;
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+    .project-item {
+        height: 400px;
+    }
+    
+    .project-item .image-container {
+        height: 300px;
+    }
+    
+    .project-item .project-title {
+        font-size: 1rem;
+    }
+    
+    .project-item .project-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* Swiper 컨테이너 수정 */
+.project-gallery-container.swiper {
+    padding: 20px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 페이지네이션 위치 30px 하향 조정 */
+.swiper-pagination {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 10px; /* 갤러리와의 간격 */
+    margin-bottom: 20px; /* 설명 텍스트와의 간격 */
+}
+
+/* 페이지네이션 정렬 및 스타일 유지 */
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: 100%;
+    text-align: center;
+    z-index: 21;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px !important;
+    display: inline-block;
+}
+
+.swiper-pagination-bullet-active {
+    background: rgb(0, 0, 255) !important;
+}
+
+/* 프로젝트 설명 영역 조정 */
+.project-info {
+    position: relative;
+    z-index: 19;
 } 

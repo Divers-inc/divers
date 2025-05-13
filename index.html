@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ko" style="background-color: #000000;">
 <head>
     <meta charset="UTF-8">
@@ -22,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         body, html {
             margin: 0;
@@ -96,20 +96,25 @@
         }
         
         .main-content {
-            max-width: 800px;
+            max-width: 1200px;
+            width: 100%;
             position: relative;
             z-index: 2;
             padding: 2rem;
             animation: fadeInUp 1.5s ease-out forwards;
         }
         
+        /* 메인 슬로건 한 줄 표시 조정 */
         .main-slogan {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
+            font-size: 4.55rem;
+            margin-bottom: 0.6rem;
             letter-spacing: -0.5px;
             line-height: 1.2;
             text-transform: uppercase;
             color: #FFFFFF;
+            white-space: nowrap;
+            width: 100%;
+            text-align: center;
         }
         
         .blue {
@@ -155,15 +160,22 @@
             }
         }
         
+        /* 섹션 간격 조정 */
         #about, #values, #services, #projects, #contact {
             min-height: 100vh;
             width: 100%;
             display: block;
             position: relative;
-            padding: 100px 0;
+            padding: 50px 0; /* 기존 100px에서 50px로 줄임 */
             color: #FFFFFF;
             z-index: 10;
             background-color: transparent !important;
+        }
+        
+        /* section-title 여백 조정 */
+        .section-title {
+            margin-bottom: 2rem;
+            margin-top: 1rem; /* 상단 여백 추가 */
         }
         
         .about-content, .values-grid, .services-grid, .project-grid, .contact-content {
@@ -185,10 +197,18 @@
             left: 0;
             width: 100%;
             z-index: 9500;
-            background-color: transparent !important; /* 배경색을 투명하게 변경 */
-            backdrop-filter: none; /* 블러 효과 제거 */
-            -webkit-backdrop-filter: none; /* 블러 효과 제거 */
-            transition: all 0.3s ease;
+            background: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+        
+        header::after,
+        header::before {
+            content: none !important;
+            display: none !important;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
         }
         
         .header-container {
@@ -244,9 +264,9 @@
         /* 메인 로고 스타일 */
         .top-logo {
             display: block;
-            height: 40px;
+            height: 20px;
             margin-right: 10px;
-            filter: none; /* 필터 제거하여 원래 로고 색상 표시 */
+            filter: brightness(0) invert(1);
         }
         
         /* 배경 비디오 설정 */
@@ -458,14 +478,6 @@
             width: 100%;
         }
         
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: #FFFFFF;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
-        
         /* 텍스트 가독성 향상을 위한 스타일 */
         p, h1, h2, h3, h4, h5, h6, li {
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
@@ -482,6 +494,101 @@
             z-index: 100;
             filter: brightness(0) invert(1); /* 로고를 흰색으로 변경 */
             background-color: transparent !important;
+        }
+        
+        /* 브랜드 데피니션 섹션 스타일 */
+        .about-content {
+            position: relative;
+        }
+        
+        /* 배경 반투명 박스 */
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 17, 17, 0.6) !important;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        /* 내부 콘텐츠는 기존 레이아웃 유지 */
+        .about-text,
+        .about-image {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 프로젝트 그리드 스타일 수정 */
+        .project-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .project-grid {
+            display: flex;
+            gap: 20px;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: pan-x;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-grid:active {
+            cursor: grabbing;
+        }
+        
+        /* 페이지 인디케이터 스타일 */
+        .page-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 20px 0;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block; /* 확실히 보이도록 */
+        }
+        
+        .indicator-dot.active {
+            background-color: rgb(0, 0, 255);
+            transform: scale(1.2);
+        }
+        
+        /* 프로젝트 아이템 스타일 */
+        .project-item {
+            flex: 0 0 calc(16.666% - 17px);
+            min-width: 250px;
+            pointer-events: none;
+        }
+        
+        /* 프로젝트 아이템 텍스트 부분 크기 조정 */
+        .project-item h3 {
+            font-size: 0.9rem; /* 기존 크기의 50% */
+            margin-bottom: 0.25rem;
+        }
+
+        .project-item p {
+            font-size: 0.7rem; /* 기존 크기의 50% */
+            opacity: 0.8;
         }
     </style>
     <script src="js/script.js"></script>
@@ -588,7 +695,7 @@
         <section class="main-hero">
             <div class="main-content">
                 <h2 class="main-slogan"><span class="blue">DIVE</span> INTO YOUR <span class="blue">VERSION</span></h2>
-                <p>성공은 주어지지 않는다. 표면의 물결 너머, 자극과 반응사이로 DIVE</p>
+                <p>성공은 주어지지 않는다. 표면의 물결너머, 자극과 반응사이로 DIVE</p>
                 <a href="#about" class="explore-btn nav-link">EXPLORE</a>
             </div>
         </section>
@@ -681,27 +788,155 @@
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-title scroll-animation">PROJECTS</h2>
-                <div class="project-grid">
-                    <div class="project-item scroll-animation scroll-delay-1">
-                        <img src="images/project1.jpg" alt="프로젝트 이미지">
-                        <h3>JONATHAN 2.0</h3>
-                        <p>브랜드 리뉴얼 및 아이덴티티 개발</p>
+                <div class="project-gallery-container swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project5.jpg" alt="Project 5" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 5</h3>
+                                    <p class="project-description">브랜드의 핵심 가치를 담아낸 디자인 프로젝트</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project6.jpg" alt="Project 6" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 6</h3>
+                                    <p class="project-description">사용자 경험을 중심으로 한 브랜드 아이덴티티</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project7.jpg" alt="Project 7" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 7</h3>
+                                    <p class="project-description">디자인과 기술의 조화</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project8.jpg" alt="Project 8" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 8</h3>
+                                    <p class="project-description">브랜드의 미래 전략</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project9.jpg" alt="Project 9" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 9</h3>
+                                    <p class="project-description">브랜드와 소비자의 소통</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project10.jpg" alt="Project 10" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 10</h3>
+                                    <p class="project-description">브랜드의 글로벌 마케팅</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project11.jpg" alt="Project 11" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 11</h3>
+                                    <p class="project-description">브랜드의 디지털 전환</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project12.jpg" alt="Project 12" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 12</h3>
+                                    <p class="project-description">브랜드의 지역 마케팅</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project13.jpg" alt="Project 13" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 13</h3>
+                                    <p class="project-description">브랜드의 커뮤니케이션 전략</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project14.jpg" alt="Project 14" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 14</h3>
+                                    <p class="project-description">브랜드의 컨텐츠 전략</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project15.jpg" alt="Project 15" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 15</h3>
+                                    <p class="project-description">브랜드의 프로덕트 전략</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project16.jpg" alt="Project 16" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 16</h3>
+                                    <p class="project-description">브랜드의 서비스 전략</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-item">
+                                <div class="image-container">
+                                    <img src="images/project17.jpg" alt="Project 17" loading="lazy">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-title">프로젝트 17</h3>
+                                    <p class="project-description">브랜드의 패턴 전략</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-item scroll-animation scroll-delay-2">
-                        <img src="images/project2.jpg" alt="프로젝트 이미지">
-                        <h3>BRAND ESSENCE</h3>
-                        <p>JONATHAN CHRONICLE - 첫 단락의 첫 비행으로부터 오늘에 이르기까지</p>
-                    </div>
-                    <div class="project-item scroll-animation scroll-delay-3">
-                        <img src="images/project3.jpg" alt="프로젝트 이미지">
-                        <h3>POSITION STRUCTURE</h3>
-                        <p>EDITOR - 세상에 무언가를 내어놓는 사람, 기록하고 연결하며 의미를 구성하는 사람</p>
-                    </div>
-                    <div class="project-item scroll-animation scroll-delay-4">
-                        <img src="images/project4.jpg" alt="프로젝트 이미지">
-                        <h3>DIVERS IDENTITY</h3>
-                        <p>독창적인 디자인과 브랜드 아이덴티티 구축</p>
-                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -710,13 +945,18 @@
             <div class="container">
                 <h2 class="section-title scroll-animation">CONTACT</h2>
                 <div class="contact-content">
-                    <div class="contact-info scroll-animation">
-                        <p>서울특별시 성동구 왕십리로 123</p>
-                        <p>이메일: info@divers.kr</p>
-                        <p>전화: 02-1234-5678</p>
-                        <div class="social-links">
-                            <a href="https://instagram.com/divers.kr" target="_blank">Instagram</a>
-                            <a href="https://www.facebook.com/divers.kr" target="_blank">Facebook</a>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <p>서울특별시 강동구 구천면로 328. 6층</p>
+                        </div>
+                        <div class="contact-item">
+                            <p><a href="mailto:ga@jonathancp.co.kr">ga@jonathancp.co.kr</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <p><a href="tel:02-2135-8472">02-2135-8472</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <p><a href="https://www.instagram.com/jonathancp.official/" target="_blank" rel="noopener noreferrer">@jonathancp.official</a></p>
                         </div>
                     </div>
                     <form class="contact-form scroll-animation scroll-delay-1">
@@ -921,5 +1161,7 @@
         }
     });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
