@@ -125,8 +125,14 @@ header {
     background-color: transparent;
 }
 
+.logo {
+    position: relative;
+    z-index: 1000;
+}
+
 .logo a {
-    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .logo h1 {
@@ -139,6 +145,9 @@ header {
 
 .main-nav {
     display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav li {
@@ -753,6 +762,63 @@ footer {
     .values-grid {
         grid-template-columns: 1fr;
     }
+
+    /* 로고(DIVERS) 위치 조정 */
+    .logo {
+        text-align: left;
+        padding-left: 20px; /* 다른 네비게이션 버튼들과 같은 선상에 정렬 */
+    }
+    
+    .logo h1 {
+        font-size: 20px; /* 모바일에서 로고 크기 조정 */
+        margin: 10px 0;
+    }
+
+    /* 네비게이션 메뉴 조정 */
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+
+    .main-nav li {
+        margin: 10px 0;
+    }
+
+    .main-nav a {
+        font-size: 16px;
+    }
+
+    /* 프로젝트 갤러리 모바일 최적화 */
+    .project-gallery-container.swiper {
+        padding: 10px 20px;
+    }
+
+    .project-item {
+        height: auto;
+    }
+
+    .project-item .image-container {
+        height: 250px; /* 모바일에서 이미지 높이 조정 */
+    }
+
+    .project-item .project-info {
+        padding: 10px;
+    }
+
+    .project-item .project-title {
+        font-size: 0.9rem;
+    }
+
+    .project-item .project-description {
+        font-size: 0.8rem;
+    }
+
+    /* 스와이퍼 네비게이션 버튼 숨김 */
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -1231,4 +1297,11 @@ footer {
 .project-info {
     position: relative;
     z-index: 19;
+}
+
+/* 모바일에서 스와이프 제스처 개선 */
+@media (hover: none) and (pointer: coarse) {
+    .project-gallery-container.swiper {
+        touch-action: pan-y;
+    }
 } 
