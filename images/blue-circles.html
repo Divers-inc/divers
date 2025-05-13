@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파란색 원형 패턴</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            width: 800px;
+            height: 1200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blue-circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #0066FF;
+            opacity: 1;
+        }
+        
+        .blue-circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 25%;
+        }
+        
+        .blue-circle:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            top: 15%;
+            right: 20%;
+        }
+        
+        .blue-circle:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            top: 40%;
+            left: 10%;
+        }
+        
+        .blue-circle:nth-child(4) {
+            width: 220px;
+            height: 220px;
+            bottom: 30%;
+            left: 40%;
+        }
+        
+        .blue-circle:nth-child(5) {
+            width: 230px;
+            height: 230px;
+            bottom: 15%;
+            right: 20%;
+        }
+        
+        .blue-circle:nth-child(6) {
+            width: 200px;
+            height: 200px;
+            bottom: 5%;
+            left: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-circle"></div>
+    <div class="blue-circle"></div>
+    <div class="blue-circle"></div>
+    <div class="blue-circle"></div>
+    <div class="blue-circle"></div>
+    <div class="blue-circle"></div>
+</body>
+</html> 
