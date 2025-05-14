@@ -724,22 +724,39 @@ footer {
 
 @media screen and (max-width: 768px) {
     .header-container {
-        padding: 10px 20px;
+        padding: 10px;
+        position: relative;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        padding-left: 5px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+        margin: 0;
     }
 
     .menu-toggle {
         display: flex;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
     }
 
     .main-nav {
         display: none;
-        position: fixed;
-        top: 60px;
+        position: absolute;
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.95) !important;
         padding: 20px;
         flex-direction: column;
+        z-index: 1000;
     }
 
     .main-nav.active {
@@ -755,31 +772,48 @@ footer {
         padding: 10px 0;
     }
 
-    /* 메인 슬로건 조정 */
     .main-slogan {
         font-size: 2.5rem;
         white-space: normal;
     }
 
-    /* 섹션 패딩 조정 */
     section {
         padding: 30px 20px;
     }
 
-    /* 프로젝트 갤러리 조정 */
     .project-gallery-container {
         padding: 0 10px;
     }
 
     .project-item {
-        margin: 10px 0;
+        width: calc(100% - 20px) !important;
+        margin: 10px !important;
+        max-width: none !important;
     }
 
     .project-item .image-container {
-        height: 200px;
+        height: 200px !important;
+        width: 100% !important;
     }
 
-    /* 스와이퍼 네비게이션 숨김 */
+    .project-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .project-info {
+        padding: 15px !important;
+    }
+
+    .project-item .project-title {
+        font-size: 1.2rem !important;
+    }
+
+    .project-item .project-description {
+        font-size: 0.9rem !important;
+    }
+
     .swiper-button-next,
     .swiper-button-prev {
         display: none !important;
@@ -792,11 +826,23 @@ footer {
     }
 
     .project-item .image-container {
-        height: 180px;
+        height: 180px !important;
     }
 
     section {
         padding: 20px 15px;
+    }
+
+    .project-info {
+        padding: 10px !important;
+    }
+
+    .project-item .project-title {
+        font-size: 1.1rem !important;
+    }
+
+    .project-item .project-description {
+        font-size: 0.85rem !important;
     }
 }
 

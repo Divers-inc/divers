@@ -37,12 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // 모바일 메뉴 토글
+    // 모바일 메뉴 토글 개선
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     
     if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', function() {
+        // 토글 버튼 클릭 이벤트
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             mainNav.classList.toggle('active');
             
             // 토글 버튼 애니메이션
@@ -67,6 +70,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 spans[1].style.opacity = '1';
                 spans[2].style.transform = 'none';
             });
+        });
+
+        // 화면 클릭 시 메뉴 닫기
+        document.addEventListener('click', function(e) {
+            if (mainNav.classList.contains('active') && 
+                !mainNav.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                mainNav.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
         });
     }
     
