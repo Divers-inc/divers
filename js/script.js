@@ -278,6 +278,23 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseOnMouseEnter: true,
         },
     });
+
+    // 로고 클릭 이벤트 처리
+    const logoLink = document.querySelector('.logo a');
+    if (logoLink) {
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const homeSection = document.querySelector('#home');
+            if (homeSection) {
+                homeSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 });
 
 // 스크롤 시 헤더 스타일 변경
