@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.addEventListener('click', function() {
             mainNav.classList.toggle('active');
             
-            // 토글 애니메이션
-            const spans = menuToggle.querySelectorAll('span');
+            // 토글 버튼 애니메이션
+            const spans = this.querySelectorAll('span');
             if (mainNav.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
                 spans[1].style.opacity = '0';
@@ -56,6 +56,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 spans[1].style.opacity = '1';
                 spans[2].style.transform = 'none';
             }
+        });
+
+        // 메뉴 아이템 클릭 시 메뉴 닫기
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
         });
     }
     
