@@ -67,7 +67,10 @@
         .main-hero {
             height: 100vh;
             background-color: transparent !important;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             padding: 0 1rem;
             position: relative;
         }
@@ -211,9 +214,9 @@
             left: 0;
             width: 100%;
             z-index: 9500;
-            background: none !important;
-            border-bottom: none !important;
-            box-shadow: none !important;
+            background: rgb(217, 217, 217) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
         }
         
         header::after,
@@ -229,9 +232,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 0px 30px;
             max-width: 1400px;
             margin: 0 auto;
+            height: 30px;
         }
         
         .logo {
@@ -532,13 +536,11 @@
         
         /* 메인 히어로 로고 */
         .hero-logo {
-            width: 360px;
-            max-width: 360px;
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            transform: none;
-            z-index: 1000;
+            width: 40%;
+            max-width: 400px;
+            position: relative;
+            transform: scale(1.2);
+            z-index: 100;
             filter: none;
             background-color: transparent !important;
         }
@@ -658,6 +660,34 @@
             opacity: 0.8;
             font-weight: 400;
         }
+        
+        /* 모바일 반응형 스타일 */
+        @media (max-width: 768px) {
+            /* 모바일에서 로고 크기 조정 */
+            .hero-logo {
+                width: 60%;
+                max-width: 300px;
+                transform: scale(1);
+            }
+            
+            /* 모바일에서 헤더 패딩 조정 */
+            .header-container {
+                padding: 0px 20px;
+                height: 25px;
+            }
+            
+            /* 모바일에서 네비게이션 텍스트 크기 조정 */
+            .main-nav a {
+                font-size: 12px;
+                margin: 0 10px;
+            }
+            
+            /* 모바일에서 섹션 패딩 조정 */
+            section:not(.main-hero) {
+                padding-top: 80px;
+                padding-bottom: 50px;
+            }
+        }
     </style>
     <script src="js/script.js"></script>
 </head>
@@ -751,11 +781,9 @@
         <!-- 메인 히어로 섹션 -->
         <section id="home" class="main-hero">
             <div class="main-content">
+                <img src="images/rogo1.png" alt="DIVERS 로고" class="hero-logo">
             </div>
         </section>
-        
-        <!-- 로고를 독립적으로 배치 -->
-        <img src="images/rogo1.png" alt="DIVERS 로고" class="hero-logo">
 
         <section id="about" class="about">
             <div class="container">
