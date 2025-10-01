@@ -1,14 +1,14 @@
-<html lang="ko" style="background-color: #000000;">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIVERS - 당신만의 버전으로 dive하세요</title>
-    <meta name="description" content="DIVERS는 발명하지 않습니다. 자국과 반응 사이, 당신의 공간에 뛰어듭니다. 다양한 관점에서 당신만의 버전을 발견하세요.">
+    <meta name="description" content="DIVERS는 발명하지 않습니다. 자극과 반응 사이, 당신의 공간에 뛰어듭니다. 다양한 관점에서 당신만의 버전을 발견하세요.">
     <meta name="keywords" content="DIVERS, IMMERSION, ALIGNMENT, EXPEDITION, 브랜드, 디자인, 에디터">
     <meta name="author" content="DIVERS">
     <!-- Open Graph / 소셜 미디어 -->
     <meta property="og:title" content="DIVERS - DIVE INTO YOUR VERSION">
-    <meta property="og:description" content="당신만의 버전으로 dive하세요. 자국과 반응 사이, 공간에 뛰어듭니다.">
+    <meta property="og:description" content="당신만의 버전으로 dive하세요. 자극과 반응 사이, 공간에 뛰어듭니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://divers.kr">
     <meta property="og:image" content="images/og-image.jpg">
@@ -20,6 +20,7 @@
     <!-- 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
@@ -28,11 +29,21 @@
             padding: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            background: none !important;
+            background: #ffffff !important;
+            font-family: 'Pretendard', 'Lato', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
         }
         
-        /* 모든 배경색 제거 */
-        *, *::before, *::after {
+        /* 모든 요소의 배경을 흰색으로 강제 설정 */
+        * {
+            background-color: transparent !important;
+        }
+        
+        body, html {
+            background-color: #ffffff !important;
+        }
+        
+        /* 특정 요소의 배경색 제거 (body 제외) */
+        section, div, header, footer, main {
             background: none !important;
         }
         
@@ -45,10 +56,6 @@
             display: none;
         }
         
-        /* 비디오 배경 조정 */
-        .background-video {
-            opacity: 1;
-        }
         
         /* 텍스트 가독성 유지 */
         .main-content, .section-content {
@@ -68,32 +75,11 @@
             position: relative;
         }
         
-        /* 검은색 배경 완전 제거 */
-        .hero {
-            background-color: transparent !important;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
         
         section, div, header, footer {
             background-color: transparent !important;
         }
         
-        /* 오버레이 제거 */
-        .hero::before,
-        .hero::after,
-        .background-container::before,
-        .background-container::after,
-        body::after,
-        body::before,
-        section::before,
-        section::after {
-            content: none !important;
-            display: none !important;
-            opacity: 0 !important;
-            background: transparent !important;
-        }
         
         .main-content {
             max-width: 1200px;
@@ -106,15 +92,17 @@
         
         /* 메인 슬로건 한 줄 표시 조정 */
         .main-slogan {
+            font-family: 'Lato', 'Pretendard', sans-serif;
             font-size: 4.55rem;
             margin-bottom: 0.6rem;
             letter-spacing: -0.5px;
             line-height: 1.2;
             text-transform: uppercase;
-            color: #FFFFFF;
+            color: #000000;
             white-space: nowrap;
             width: 100%;
             text-align: center;
+            font-weight: 700;
         }
         
         .blue {
@@ -123,12 +111,13 @@
         
         .main-content p {
             font-size: 1.2rem;
-            color: #FFFFFF;
+            color: #000000;
             max-width: 600px;
             margin: 0 auto 2rem;
         }
         
         .explore-btn {
+            font-family: 'Lato', 'Pretendard', sans-serif;
             display: inline-block;
             padding: 0.8rem 2rem;
             background-color: rgb(0, 0, 255);
@@ -141,6 +130,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             cursor: pointer;
+            font-weight: 400;
         }
         
         .explore-btn:hover {
@@ -167,15 +157,20 @@
             display: block;
             position: relative;
             padding: 50px 0; /* 기존 100px에서 50px로 줄임 */
-            color: #FFFFFF;
+            color: #000000;
             z-index: 10;
             background-color: transparent !important;
         }
         
         /* section-title 여백 조정 */
         .section-title {
+            font-family: 'Lato', 'Pretendard', sans-serif;
             margin-bottom: 2rem;
             margin-top: 1rem; /* 상단 여백 추가 */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000000;
         }
         
         .about-content, .values-grid, .services-grid, .project-grid, .contact-content {
@@ -183,11 +178,33 @@
         }
         
         .value-item, .service-item, .project-item {
-            background-color: rgba(17, 17, 17, 0.6) !important;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background-color: transparent !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+        }
+        
+        .value-item h3, .service-item h3, .project-item h3 {
+            font-family: 'Lato', 'Pretendard', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000000;
+        }
+        
+        .value-item p, .service-item p, .project-item p {
+            color: #000000;
+        }
+        
+        .value-item li, .service-item li, .project-item li {
+            color: #000000;
+        }
+        
+        /* about 섹션 텍스트 색상 */
+        .about-text p {
+            color: #000000 !important;
         }
         
         /* 헤더 고정 및 항상 상단에 표시 */
@@ -227,13 +244,15 @@
         
         .logo a {
             text-decoration: none;
-            color: #FFFFFF;
+            color: #000000;
         }
         
         .logo h1 {
+            font-family: 'Lato', 'Pretendard', sans-serif;
             margin: 0;
             font-size: 24px;
             letter-spacing: 2px;
+            font-weight: 700;
         }
         
         .main-nav {
@@ -248,12 +267,14 @@
         }
         
         .main-nav a {
-            color: #FFFFFF;
+            font-family: 'Lato', 'Pretendard', sans-serif;
+            color: #000000;
             text-decoration: none;
             font-size: 14px;
             letter-spacing: 1px;
             transition: all 0.3s ease;
             text-transform: uppercase;
+            font-weight: 400;
         }
         
         .main-nav a:hover {
@@ -261,7 +282,7 @@
         }
         
         /* 콘텐츠 영역 패딩 조정 */
-        section:not(.hero) {
+        section:not(.main-hero) {
             padding-top: 100px;
             padding-bottom: 100px;
         }
@@ -271,31 +292,9 @@
             display: block;
             height: 20px;
             margin-right: 10px;
-            filter: brightness(0) invert(1);
+            filter: none;
         }
         
-        /* 배경 비디오 설정 */
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            background-color: transparent !important;
-        }
-        
-        .background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 1;
-        }
         
         /* 버블 스타일 - 파란색으로 채워진 기포 */
         .bubbles {
@@ -309,10 +308,10 @@
         .bubble {
             position: absolute;
             border-radius: 50%;
-            background-color: #0000ff !important;
-            opacity: 0.4 !important;
+            background-color: rgb(22, 33, 242) !important;
+            opacity: 1.0 !important;
             animation: bubbleRising 15s infinite ease-in-out;
-            box-shadow: 0 0 15px rgba(0, 0, 255, 0.6) !important;
+            box-shadow: 0 0 15px rgba(22, 33, 242, 0.6) !important;
         }
         
         .bubble-1 {
@@ -421,10 +420,10 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: transparent;
             padding: 5px 8px;
             border-radius: 20px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: none;
             opacity: 0.3;
             transform: scale(0.8);
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -438,7 +437,7 @@
         .audio-controls button {
             background: none;
             border: none;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(0, 0, 0, 0.7);
             font-size: 18px;
             cursor: pointer;
             outline: none;
@@ -454,7 +453,7 @@
         
         .audio-controls button:hover {
             transform: scale(1.1);
-            color: rgba(255, 255, 255, 1);
+            color: rgba(0, 0, 0, 1);
         }
         
         .audio-controls .volume-slider {
@@ -462,7 +461,7 @@
             margin: 0 5px;
             appearance: none;
             height: 2px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 5px;
             outline: none;
         }
@@ -471,7 +470,7 @@
             appearance: none;
             width: 8px;
             height: 8px;
-            background: white;
+            background: black;
             border-radius: 50%;
             cursor: pointer;
         }
@@ -485,19 +484,44 @@
         
         /* 텍스트 가독성 향상을 위한 스타일 */
         p, h1, h2, h3, h4, h5, h6, li {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            text-shadow: none;
         }
         
-        /* 첫 화면 로고 */
+        /* 푸터 폰트 설정 */
+        .footer-content h2 {
+            font-family: 'Lato', 'Pretendard', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000000;
+        }
+        
+        .footer-content p {
+            font-family: 'Lato', 'Pretendard', sans-serif;
+            font-weight: 400;
+            color: #000000;
+        }
+        
+        .footer-links a {
+            font-family: 'Lato', 'Pretendard', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000000;
+        }
+        
+        .footer-social a {
+            font-family: 'Lato', 'Pretendard', sans-serif;
+            font-weight: 400;
+            color: #000000;
+        }
+        
+        /* 메인 히어로 로고 */
         .hero-logo {
-            width: 40%;
-            max-width: 300px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.6);
-            z-index: 100;
-            filter: brightness(0) invert(1); /* 로고를 흰색으로 변경 */
+            width: 200px;
+            max-width: 200px;
+            margin-bottom: 2rem;
+            filter: none;
             background-color: transparent !important;
         }
         
@@ -506,20 +530,10 @@
             position: relative;
         }
         
-        /* 배경 반투명 박스 */
+        /* 배경 반투명 박스 제거 */
         .about-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(17, 17, 17, 0.6) !important;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1;
+            content: none;
+            display: none;
         }
         
         /* 내부 콘텐츠는 기존 레이아웃 유지 */
@@ -587,18 +601,24 @@
         
         /* 프로젝트 아이템 텍스트 부분 크기 조정 */
         .project-item h3 {
+            font-family: 'Lato', 'Pretendard', sans-serif;
             font-size: 0.9rem; /* 기존 크기의 50% */
             margin-bottom: 0.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .project-item p {
+            font-family: 'Pretendard', 'Lato', sans-serif;
             font-size: 0.7rem; /* 기존 크기의 50% */
             opacity: 0.8;
+            font-weight: 400;
         }
     </style>
     <script src="js/script.js"></script>
 </head>
-<body style="background-color: transparent !important;">
+<body>
     <!-- 배경 음악 -->
     <audio id="bgm" loop preload="auto">
         <source src="images/bgm.mp3" type="audio/mp3">
@@ -643,25 +663,18 @@
         <button id="mute-btn">🔊</button>
     </div>
     
-    <!-- 배경 비디오 및 기포 효과 -->
-    <div class="background-container">
-        <video autoplay muted loop playsinline preload="auto" class="background-video">
-            <source src="images/video1.mov" type="video/mp4">
-            브라우저가 비디오를 지원하지 않습니다.
-        </video>
-    </div>
     
     <div class="bubbles">
-        <div class="bubble bubble-1" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-2" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-3" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-4" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-5" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-6" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-7" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-8" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-9" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
-        <div class="bubble bubble-10" style="background-color: #0000ff !important; opacity: 0.4 !important;"></div>
+        <div class="bubble bubble-1" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-2" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-3" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-4" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-5" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-6" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-7" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-8" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-9" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
+        <div class="bubble bubble-10" style="background-color: rgb(22, 33, 242) !important; opacity: 1.0 !important;"></div>
     </div>
     
     <!-- 헤더 (네비게이션) -->
@@ -679,6 +692,7 @@
             </button>
             <nav>
                 <ul class="main-nav">
+                    <li><a href="#home" class="nav-link">HOME</a></li>
                     <li><a href="#about" class="nav-link">ABOUT</a></li>
                     <li><a href="#values" class="nav-link">CORE VALUES</a></li>
                     <li><a href="#services" class="nav-link">SERVICES</a></li>
@@ -691,14 +705,10 @@
 
     <!-- 메인 콘텐츠 -->
     <main>
-        <!-- 첫 화면 (히어로 섹션) -->
-        <section id="hero" class="hero">
-            <img src="images/rogo1.png" alt="DIVERS 로고" class="hero-logo">
-        </section>
-
-        <!-- 메인 콘텐츠 섹션 -->
-        <section class="main-hero">
+        <!-- 메인 히어로 섹션 -->
+        <section id="home" class="main-hero">
             <div class="main-content">
+                <img src="images/rogo1.png" alt="DIVERS 로고" class="hero-logo">
                 <h2 class="main-slogan"><span class="blue">DIVE</span> INTO YOUR <span class="blue">VERSION</span></h2>
                 <p>성공은 주어지지 않는다. 표면의 물결너머, 자극과 반응사이로 DIVE</p>
                 <a href="#about" class="explore-btn nav-link">EXPLORE</a>
@@ -993,6 +1003,7 @@
                 </div>
                 <div class="footer-links">
                     <ul>
+                        <li><a href="#home" class="nav-link">HOME</a></li>
                         <li><a href="#about" class="nav-link">ABOUT</a></li>
                         <li><a href="#values" class="nav-link">CORE VALUES</a></li>
                         <li><a href="#services" class="nav-link">SERVICES</a></li>
